@@ -35,3 +35,5 @@ Major categories:
 If the subprojects require different versions, then webpack will serve both versions.
 
 If the subprojects require the same version, then webpack will only serve one instance of it.
+
+If forcing a singleton:true but specifying conflicting versions, webpack with throw a console warning about conflicting rules.

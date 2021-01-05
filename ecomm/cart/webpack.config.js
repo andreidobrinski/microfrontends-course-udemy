@@ -14,14 +14,14 @@ module.exports = {
         './CartShow': './src/index',
       },
       // allows for multiple versions of faker
-      // shared: ['faker'],
+      shared: ['faker'],
 
       // allows for only one version of faker
-      shared: {
-        faker: {
-          singleton: true,
-        },
-      },
+      // shared: {
+      //   faker: {
+      //     singleton: true,
+      //   },
+      // },
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
