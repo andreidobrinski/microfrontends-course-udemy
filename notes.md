@@ -29,3 +29,9 @@ Major categories:
   - container fetches updated file and loads it
   - (primary focus in this course)
   - most flexible and performant solution, uses webpack module federation
+
+## Sharing dependencies between subprojects
+
+If the subprojects require different versions, then webpack will serve both versions.
+
+If the subprojects require the same version, then webpack will only serve one instance of it.
