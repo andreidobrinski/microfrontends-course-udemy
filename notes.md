@@ -37,3 +37,13 @@ If the subprojects require different versions, then webpack will serve both vers
 If the subprojects require the same version, then webpack will only serve one instance of it.
 
 If forcing a singleton:true but specifying conflicting versions, webpack with throw a console warning about conflicting rules.
+
+## Requirements
+
+Requirements driving architecture choices:
+
+1. No coupling between child projects. No sharing state or functions. Shared dependencies are ok.
+2. Almost no coupling between container and child apps. Container can't assume any frameworks that the child is using. Necessary comms are done with callbacks and simple events.
+3. CSS from one project should not affect another
+4. Version control shouldn't have any impact on overall project. Monorepo vs separate projects should both work.
+5. Container should be able to decide to use the latest version of a microfrontend or a specific version of a microfrontend. Either or - container may have to redeploy to make a change.
