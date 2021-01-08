@@ -47,3 +47,12 @@ Requirements driving architecture choices:
 3. CSS from one project should not affect another
 4. Version control shouldn't have any impact on overall project. Monorepo vs separate projects should both work.
 5. Container should be able to decide to use the latest version of a microfrontend or a specific version of a microfrontend. Either or - container may have to redeploy to make a change.
+
+## Routing
+
+1. Both the container and individual apps need routing features. Container controls routing between subapps. Subapp controls its own routing, if it needs routing.
+2. Subapps might need to add new pages/routes at any time. Shouldn't need to deploy the container to do this.
+3. It should be possible to show two or more microfrontends at the same time.
+4. We want to be able to use off-the-shelf routing solutions. React Router, Vue Router etc.
+5. Subapp navigation should work both in hosted mode and in isolation.
+6. If different apps need to communicate about routing, it should be done as generically as possible. Should be agnostic about any routing libraries.
