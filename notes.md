@@ -56,3 +56,11 @@ Requirements driving architecture choices:
 4. We want to be able to use off-the-shelf routing solutions. React Router, Vue Router etc.
 5. Subapp navigation should work both in hosted mode and in isolation.
 6. If different apps need to communicate about routing, it should be done as generically as possible. Should be agnostic about any routing libraries.
+
+### History Object
+
+3 different kinds:
+
+1. Browser History. Looks at the path of the URL to figure out what the current path is
+2. Hash History. Looks at everything after the '#' in the URL to figure out the path.
+3. Memory (Abstract) History. Keeps track of the current path in memory.
