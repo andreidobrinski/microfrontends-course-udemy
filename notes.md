@@ -64,3 +64,9 @@ Requirements driving architecture choices:
 1. Browser History. Looks at the path of the URL to figure out what the current path is
 2. Hash History. Looks at everything after the '#' in the URL to figure out the path.
 3. Memory (Abstract) History. Keeps track of the current path in memory.
+
+## Authentication
+
+- Auth app is for signin/up of users
+- Auth app is not for enforcing permissions or allowing access to certain routes
+- Container app is responsible for auth and communicating auth status to subprojects
