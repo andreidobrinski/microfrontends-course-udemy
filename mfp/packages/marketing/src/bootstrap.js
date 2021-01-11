@@ -5,18 +5,16 @@ import App from './App';
 
 // mount function to start the app
 const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
-  const history = defaultHistory || createMemoryHistory({
-    initialEntries: [initialPath]
+  const history = defaultHistory ||
+  createMemoryHistory({
+    initialEntries: [initialPath],
   });
 
   if (onNavigate) {
     history.listen(onNavigate);
   }
 
-  ReactDOM.render(
-    <App history={history} />,
-    el
-  );
+  ReactDOM.render(<App history={history} />, el);
 
   return {
     onParentNavigate({ pathname: nextPathname }) {
@@ -25,7 +23,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
       if (pathname !== nextPathname) {
         history.push(nextPathname);
       }
-    }
+    },
   };
 };
 
