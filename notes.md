@@ -70,3 +70,47 @@ Requirements driving architecture choices:
 - Auth app is for signin/up of users
 - Auth app is not for enforcing permissions or allowing access to certain routes
 - Container app is responsible for auth and communicating auth status to subprojects
+
+## Summary
+
+**Microfrontends**
+
+- collection of frontend projects built with one container and multiple subapps
+- subapps can be run independently or as part of the container
+- app code integration managed with webpack module federation
+- subapps expose a `mount` function that lets the container (or subapp in isolation) mount the MFE to an HTML element
+- communication between apps managed with simple JS callbacks
+- requirements noted above
+
+**Development**
+
+- container and subapps need an npm install && start
+
+**Routing**
+
+- history object is passed from container to subapp
+- subapp creates own history object if not passed for isolated development
+- container routes between subapps
+- subapps manage their internal routing
+- pass callbacks to communicate route pathname between container and subapps to sync history objects
+
+**CSS**
+
+- important to scope all CSS to MFE
+- done with CSS-in-JS frameworks by appending a prefix to classnames in production
+
+**Performance**
+
+- shared dependencies with webpack module federation plugin
+- code splitting with React lazy
+
+**Authentication**
+
+- container hold auth state and passes to subapps
+
+**Next Steps**
+
+- SSR/SSG at either the container or subapp level?
+- Replacing JS with a different language at the container or subapp level?
+- room for improvement in DX, to not have to run multiple terminal windows. nodemon or containerization?
+- figure out React Router bug with landing on /route
